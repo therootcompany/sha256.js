@@ -1,0 +1,36 @@
+{
+  "name": "@root/sha256",
+  "version": "1.0.0",
+  "description": "A brower, node, and bun-compatible synchronous sha256 implementation using TypedArray",
+  "main": "sha256.js",
+  "scripts": {
+    "test": "node ./tests/",
+    "jshint": "npx -p jshint@2.x -- jshint -c ./.jshintrc ./*.js",
+    "lint": "npm run jshint && npm run tsc",
+    "prettier": "npx -p prettier@3.x -- prettier -w '**/*.{js,md}'",
+    "fmt": "npm run prettier",
+    "bump": "npm version -m \"chore(release): bump to v%s\"",
+    "tsc": "npx -p typescript@5.x -- tsc -p ./jsconfig.json",
+    "reexport-types": "npx -p jswt@1.x -- reexport",
+    "prepublish": "npm run reexport-types"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/therootcompany/sha256.js.git"
+  },
+  "keywords": [
+    "SHA-256",
+    "sha256",
+    "Uint8Array",
+    "Uint32Array",
+    "ArrayBuffer",
+    "TypedArray",
+    "synchronous"
+  ],
+  "author": "AJ ONeal <aj@therootcompany.com> (https://therootcompany.com/)",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/therootcompany/sha256.js/issues"
+  },
+  "homepage": "https://github.com/therootcompany/sha256.js#readme"
+}
