@@ -1,8 +1,11 @@
 {
   "name": "@root/sha256",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A browser, node, and bun-compatible synchronous sha256 implementation using TypedArray",
-  "main": "sha256.js",
+  "type": "module",
+  "exports": {
+    "./sha256.js": "./sha256.js"
+  },
   "scripts": {
     "test": "node ./tests/",
     "jshint": "npx -p jshint@2.x -- jshint -c ./.jshintrc ./*.js",
@@ -10,9 +13,7 @@
     "prettier": "npx -p prettier@3.x -- prettier -w '**/*.{js,md}'",
     "fmt": "npm run prettier",
     "bump": "npm version -m \"chore(release): bump to v%s\"",
-    "tsc": "npx -p typescript@5.x -- tsc -p ./jsconfig.json",
-    "reexport-types": "npx -p jswt@1.x -- reexport",
-    "prepublish": "npm run reexport-types"
+    "tsc": "npx -p typescript@5.x -- tsc -p ./jsconfig.json"
   },
   "repository": {
     "type": "git",

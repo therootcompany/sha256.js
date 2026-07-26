@@ -1,7 +1,8 @@
 {
   "browser": true,
   "node": true,
-  "esversion": 11,
+  "esversion": 2023,
+  "module": true,
   "curly": true,
   "sub": true,
 
@@ -16,7 +17,6 @@
   "plusplus": true,
   "undef": true,
   "unused": "vars",
-  "strict": true,
   "maxdepth": 4,
   "maxstatements": 100,
   "maxcomplexity": 20
