@@ -1,7 +1,7 @@
 {
   "name": "@root/sha256",
   "version": "1.0.0",
-  "description": "A brower, node, and bun-compatible synchronous sha256 implementation using TypedArray",
+  "description": "A browser, node, and bun-compatible synchronous sha256 implementation using TypedArray",
   "main": "sha256.js",
   "scripts": {
     "test": "node ./tests/",

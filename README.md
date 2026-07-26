@@ -1,7 +1,7 @@
 # [@root/sha256](https://github.com/therootcompany/sha256.js)
 
-A brower, node, and bun-compatible synchronous sha256 implementation using typed
-arrays
+A browser, node, and bun-compatible synchronous sha256 implementation using
+typed arrays
 
 ## For Browsers
 
@@ -10,7 +10,7 @@ arrays
 ```
 
 ```js
-let Sha256 = window.Sha56;
+let Sha256 = window.Sha256;
 
 let msg = "Hello, World!";
 let encoder = new TextEncoder();
@@ -30,7 +30,7 @@ function bytesToHex(bytes) {
   for (let b of bytes) {
     let h = b.toString(16);
     h = h.padStart(2, "0");
-    hexes.push(b);
+    hexes.push(h);
   }
 
   let hex = hexes.join("");
@@ -64,7 +64,7 @@ console.log(hex);
 - WebCrypto's SHA-256 is asynchronous, which means:
   - it's very slow (context switches on each call)
   - it colors all the functions (sha256 is cpu-bound and typically sync)
-- Other popular implementations have bespoke psuedo-buffers (not `TypedArray`s)
+- Other popular implementations have bespoke pseudo-buffers (not `TypedArray`s)
 - Refactoring other implementations is tedious and error-prone
 
 ## References
