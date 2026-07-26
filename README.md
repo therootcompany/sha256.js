@@ -6,46 +6,42 @@ typed arrays
 ## For Browsers
 
 ```html
-<script src="https://unpkg.com/@root/sha256@1/sha256.js"></script>
-```
+<script type="module">
+  import Sha256 from "https://unpkg.com/@root/sha256@2/sha256.js";
 
-```js
-let Sha256 = window.Sha256;
+  let msg = "Hello, World!";
+  let encoder = new TextEncoder();
+  let bytes = encoder.encode(msg);
 
-let msg = "Hello, World!";
-let encoder = new TextEncoder();
-let bytes = encoder.encode(msg);
+  let hashBytes = Sha256.sha256(bytes);
+  console.log(hashBytes);
 
-let hashBytes = Sha256.sha256(bytes);
-console.log(hashBytes);
-```
+  let hex = bytesToHex(hashBytes);
+  console.log(hex);
 
-```js
-let hex = bytesToHex(hashBytes);
-console.log(hex);
+  function bytesToHex(bytes) {
+    let hexes = [];
 
-function bytesToHex(bytes) {
-  let hexes = [];
+    for (let b of bytes) {
+      let h = b.toString(16);
+      h = h.padStart(2, "0");
+      hexes.push(h);
+    }
 
-  for (let b of bytes) {
-    let h = b.toString(16);
-    h = h.padStart(2, "0");
-    hexes.push(h);
+    let hex = hexes.join("");
+    return hex;
   }
-
-  let hex = hexes.join("");
-  return hex;
-}
+</script>
 ```
 
 ## For Node, Bun, and Bundlers
 
 ```sh
-npm install --save @root/sha256@1
+npm install --save @root/sha256@2
 ```
 
 ```js
-let Sha256 = require("@root/sha256");
+import Sha256 from "@root/sha256/sha256.js";
 
 let msg = "Hello, World!";
 let encoder = new TextEncoder();

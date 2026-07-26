@@ -1,13 +1,11 @@
-"use strict";
-
-let ChildProcess = require("child_process");
-let Fs = require("node:fs/promises");
-let Path = require("node:path");
+import ChildProcess from "node:child_process";
+import Fs from "node:fs/promises";
+import Path from "node:path";
 
 async function main() {
   console.info("TAP version 13");
 
-  let dirents = await Fs.readdir(__dirname, { withFileTypes: true });
+  let dirents = await Fs.readdir(import.meta.dirname, { withFileTypes: true });
 
   let failures = 0;
   let count = 0;
@@ -17,7 +15,7 @@ async function main() {
     }
 
     count += 1;
-    let direntPath = Path.join(__dirname, dirent.name);
+    let direntPath = Path.join(import.meta.dirname, dirent.name);
     let relPath = Path.relative(".", direntPath);
 
     let success = await handleEach(count, relPath);
